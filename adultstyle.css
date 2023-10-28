@@ -1,0 +1,140 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #000;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 10%;
+    background-color: #222;
+}
+
+#brand-logo img {
+    height: 40px;
+    width: auto;
+}
+
+.category {
+    padding: 20px 10%;
+}
+
+.category h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.movie-posters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.movie-posters .movie {
+    position: relative;
+    width: calc(20% - 20px);
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.movie-posters .movie-video {
+    width: 100%;
+    border-radius: 8px;
+    transition: transform 0.3s;
+    object-fit: cover;
+}
+
+.movie-posters .movie:hover .movie-video {
+    transform: scale(1.05);
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    background-color: #222;
+    padding: 20px 0;
+    margin-top: 30px;
+}
+
+button {
+    background-color: #444;
+    color: #fff;
+    border: none;
+    padding: 15px 25px;
+    border-radius: 4px;
+    font-size: 16px;
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+button:focus {
+    outline: none;
+}
+
+button:hover {
+    background-color: #555;
+}
+
+nav {
+    flex: 1;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 15px;
+    transition: background-color 0.3s;
+}
+
+nav a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav {
+        margin-top: 10px;
+    }
+
+    nav a {
+        padding: 5px;
+        margin: 0 5px;
+    }
+
+    .movie-posters .movie {
+        width: calc(50% - 10px);
+    }
+
+    footer button {
+        margin: 5px;
+        padding: 10px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .movie-posters .movie {
+        width: 100%;
+    }
+
+    footer {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    footer button {
+        margin: 5px 0;
+    }
+}
