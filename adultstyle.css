@@ -13,6 +13,11 @@ header {
     background-color: #222;
 }
 
+#brand-logo img {
+    height: 40px;
+    width: auto;
+}
+
 .category {
     padding: 20px 10%;
 }
@@ -24,39 +29,112 @@ header {
 
 .movie-posters {
     display: flex;
-    justify-content: space-between;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 20px;
 }
 
-.movie {
-    flex-basis: calc(33.33% - 10px); /* Three items per row */
+.movie-posters .movie {
     position: relative;
+    width: calc(33.33% - 20px); /* Allows for 3 in a row */
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
 }
 
-.movie-video {
+.movie-posters .movie-video {
     width: 100%;
-    height: auto;
     border-radius: 8px;
     transition: transform 0.3s;
     object-fit: cover;
 }
 
-/* ... (rest of the CSS remains unchanged) */
+.movie-posters .movie:hover .movie-video {
+    transform: scale(1.05);
+}
 
+footer {
+    display: flex;
+    justify-content: center;
+    background-color: #222;
+    padding: 20px 0;
+    margin-top: 30px;
+}
+
+button {
+    background-color: #444;
+    color: #fff;
+    border: none;
+    padding: 15px 25px;
+    border-radius: 4px;
+    font-size: 16px;
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+button:focus {
+    outline: none;
+}
+
+button:hover {
+    background-color: #555;
+}
+
+nav {
+    flex: 1;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 15px;
+    transition: background-color 0.3s;
+}
+
+nav a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Responsive Styles */
 @media (max-width: 768px) {
-    /* ... (rest of the code remains unchanged) */
+    header {
+        flex-direction: column;
+        align-items: center;
+    }
 
-    .movie {
-        flex-basis: calc(50% - 10px); /* Two items per row for tablets */
+    nav {
+        margin-top: 10px;
+    }
+
+    nav a {
+        padding: 5px;
+        margin: 0 5px;
+    }
+
+    .movie-posters .movie {
+        width: calc(33.33% - 10px); /* For smaller screen devices */
+    }
+
+    footer button {
+        margin: 5px;
+        padding: 10px 20px;
     }
 }
 
 @media (max-width: 480px) {
-    .movie {
-        flex-basis: 100%; /* One item per row for mobile devices */
+    .movie-posters .movie {
+        width: 100%;
+    }
+
+    footer {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    footer button {
+        margin: 5px 0;
     }
 }
