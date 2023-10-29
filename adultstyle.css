@@ -1,76 +1,51 @@
-/* Previously provided CSS */
+/* Base styles for the overall page layout */
 body {
     font-family: Arial, sans-serif;
-    background-color: #111;
-    color: white;
+    background-color: #f4f4f4;
     margin: 0;
     padding: 0;
 }
 
 header {
     background-color: #333;
-    padding: 10px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo {
-    font-size: 24px;
-    font-weight: bold;
-}
-
-.nav {
-    display: flex;
-    gap: 20px;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
 }
 
 .nav a {
-    color: white;
+    color: #fff;
+    margin: 0 15px;
     text-decoration: none;
 }
 
-.nav a:hover {
-    text-decoration: underline;
-}
-
 .container {
-    padding: 20px;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
 }
 
-h1 {
-    font-size: 24px;
-}
-
-/* New CSS for video layout on mobile screens */
-.movie-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px; /* Space between videos */
-}
-
+/* Base styles for the video elements */
 .movie-video {
-    width: calc(33.333% - 10px); /* Each video takes up 1/3 of the width minus the gap */
-    height: auto;
+    width: 100%;
+    max-width: 100%;
+    display: inline-block;
+    vertical-align: top;
+    padding: 5px; /* Padding around each video for better aesthetics */
+    box-sizing: border-box;
 }
 
-/* Ensure videos maintain aspect ratio */
-.movie-video::before {
-    float: left;
-    padding-top: 56.25%; /* 16:9 Aspect Ratio */
-    content: "";
-}
+/* Responsive styles for mobile screens */
+@media screen and (max-width: 600px) {
+    .movie-row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin: 0 -0.5%; /* to remove the side gaps introduced by the padding */
+    }
 
-.movie-video::after {
-    display: block;
-    content: "";
-    clear: both;
+    .movie-row .movie-video {
+        flex: 0 0 32.3333%; /* makes it roughly one-third of the container's width */
+        margin: 0.5%; /* small margin to create gaps between thumbnails */
+    }
 }
-
-/* New CSS for hover effect on videos */
-.movie-video:hover {
-    transform: scale(1.05); /* Slightly enlarge the video thumbnail on hover */
-    transition: transform 0.3s; /* Smooth transition */
-    cursor: pointer; /* Change the cursor to indicate it's clickable */
-}
-
